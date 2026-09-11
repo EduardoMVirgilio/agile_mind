@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { KeyboardEvent } from "react";
+import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import { Lightbulb, Play } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { VictoryModal } from "../components/ui/VictoryModal";
@@ -217,7 +217,7 @@ export const MiniSudoku = ({ onMenu }: GameProps) => {
   }, [isStarted, isTimerRunning, isWon]);
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: globalThis.KeyboardEvent) => {
       if (!isStarted || isWon) return;
       if (event.key === "Backspace" || event.key === "Delete") handleInput(0);
       else if (/^[1-9]$/.test(event.key) && Number(event.key) <= size)
@@ -228,7 +228,7 @@ export const MiniSudoku = ({ onMenu }: GameProps) => {
   }, [selectedCell, board, size, isStarted, isWon, initialBoard]);
 
   const handleCellKeyDown = (
-    event: KeyboardEvent<HTMLButtonElement>,
+    event: ReactKeyboardEvent<HTMLButtonElement>,
     row: number,
     col: number,
   ) => {
