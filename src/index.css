@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+.ranking-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(99 102 241 / 0.7) transparent;
+  scrollbar-gutter: stable;
+}
+
+.ranking-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ranking-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ranking-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(99 102 241 / 0.7);
+  border-radius: 9999px;
+}
+
+.ranking-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(129 140 248 / 0.95);
+}
